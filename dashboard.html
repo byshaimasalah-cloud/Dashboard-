@@ -7,15 +7,11 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', Tahoma, Arial, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
-
-  /* API KEY SCREEN */
   #apiScreen { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
   #apiScreen h2 { color:#38bdf8; font-size:20px; margin-bottom:8px; }
   #apiScreen p { color:#64748b; font-size:13px; margin-bottom:20px; text-align:center; line-height:1.7; }
   #apiKeyInput { width:100%; max-width:420px; background:#1e293b; border:1px solid #334155; border-radius:10px; color:#e2e8f0; padding:12px 14px; font-size:14px; font-family:inherit; outline:none; margin-bottom:10px; }
   #apiSaveBtn { width:100%; max-width:420px; padding:13px; background:linear-gradient(135deg,#38bdf8,#0ea5e9); border:none; border-radius:10px; color:#0f172a; font-weight:700; font-size:15px; cursor:pointer; font-family:inherit; }
-
-  /* HEADER */
   .header { background:#1e293b; border-bottom:1px solid #1e3a5f; padding:14px 16px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:50; }
   .header-title { font-size:17px; font-weight:700; color:#38bdf8; }
   .header-sub { font-size:11px; color:#475569; margin-top:2px; }
@@ -23,36 +19,20 @@
   .badge { text-align:center; border-radius:8px; padding:6px 12px; min-width:54px; }
   .badge-val { font-size:17px; font-weight:700; }
   .badge-lbl { font-size:10px; color:#64748b; }
-
-  /* TABS */
   .tabs { display:flex; border-bottom:1px solid #1e3a5f; background:#0f172a; position:sticky; top:62px; z-index:40; }
-  .tab-btn { flex:1; padding:11px 4px; background:transparent; border:none; border-bottom:2px solid transparent; color:#64748b; cursor:pointer; font-size:12px; font-family:inherit; transition:.2s; }
+  .tab-btn { flex:1; padding:11px 4px; background:transparent; border:none; border-bottom:2px solid transparent; color:#64748b; cursor:pointer; font-size:12px; font-family:inherit; }
   .tab-btn.active { background:#1e293b; border-bottom:2px solid #38bdf8; color:#38bdf8; font-weight:600; }
-
-  /* CONTENT */
   .content { padding:14px; }
-  .section { margin-bottom:14px; }
-
-  /* INPUTS */
-  input, textarea, select {
-    width:100%; background:#0f172a; border:1px solid #334155; border-radius:8px;
-    color:#e2e8f0; padding:10px 12px; font-size:14px; font-family:inherit; outline:none;
-  }
+  input, textarea, select { width:100%; background:#0f172a; border:1px solid #334155; border-radius:8px; color:#e2e8f0; padding:10px 12px; font-size:14px; font-family:inherit; outline:none; }
   textarea { resize:vertical; }
-
-  /* BUTTONS */
   .btn { width:100%; padding:13px; border:none; border-radius:10px; font-weight:700; font-size:14px; cursor:pointer; font-family:inherit; }
   .btn-primary { background:linear-gradient(135deg,#38bdf8,#0ea5e9); color:#0f172a; }
   .btn-green { background:linear-gradient(135deg,#25d366,#128c7e); color:#fff; }
   .btn-gray { background:#334155; color:#e2e8f0; }
   .btn:disabled { background:#334155; color:#64748b; cursor:not-allowed; }
-
-  /* MODE TOGGLE */
   .mode-toggle { display:flex; gap:8px; margin-bottom:14px; }
   .mode-btn { flex:1; padding:10px 0; background:#1e293b; border:1px solid #334155; border-radius:8px; color:#64748b; cursor:pointer; font-size:13px; font-family:inherit; }
   .mode-btn.active { background:#1e3a5f; border-color:#38bdf8; color:#38bdf8; font-weight:600; }
-
-  /* SCHOOL CARD */
   .school-card { background:#1e293b; border:1px solid #334155; border-radius:10px; padding:11px 13px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
   .school-card.selected { background:#1e3a5f; border-color:#38bdf8; border-radius:10px 10px 0 0; margin-bottom:0; }
   .school-card.has-issues { border-color:#ef444433; }
@@ -60,22 +40,14 @@
   .school-meta { font-size:11px; color:#64748b; margin-top:2px; }
   .deduction-badges { display:flex; gap:5px; align-items:center; flex-wrap:wrap; }
   .d-badge { border-radius:5px; padding:2px 6px; font-size:11px; font-weight:600; }
-
-  /* EXPANDED PANEL */
   .expanded-panel { background:#0f172a; border:1px solid #1e3a5f; border-top:none; border-radius:0 0 10px 10px; padding:12px; margin-bottom:8px; }
   .type-tabs { display:flex; gap:6px; margin-bottom:10px; }
   .type-tab { flex:1; padding:7px 4px; background:#1e293b; border:1px solid #334155; border-radius:7px; color:#64748b; cursor:pointer; font-size:12px; font-family:inherit; }
-  .type-tab.active-ac { background:#0ea5e922; border-color:#0ea5e9; color:#0ea5e9; font-weight:600; }
-  .type-tab.active-cln { background:#10b98122; border-color:#10b981; color:#10b981; font-weight:600; }
-  .type-tab.active-mo { background:#f59e0b22; border-color:#f59e0b; color:#f59e0b; font-weight:600; }
   .fields-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; }
   .field-item { background:#1e293b; border:1px solid #334155; border-radius:7px; padding:9px 10px; cursor:pointer; display:flex; align-items:center; gap:7px; }
-  .field-item.checked { }
   .checkbox { width:16px; height:16px; border-radius:3px; border:2px solid #475569; display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0; }
   .field-label { font-size:11px; color:#94a3b8; }
   .field-item.checked .field-label { color:#e2e8f0; }
-
-  /* NOTE CARD */
   .note-card { background:#1e293b; border:1px solid #334155; border-radius:9px; padding:11px; margin-bottom:8px; display:flex; justify-content:space-between; gap:8px; }
   .note-card.done { opacity:.55; }
   .note-school { font-size:11px; color:#38bdf8; margin-bottom:3px; }
@@ -84,20 +56,12 @@
   .note-meta { font-size:11px; color:#475569; margin-top:4px; }
   .note-btns { display:flex; gap:5px; flex-shrink:0; }
   .note-btn { border:none; border-radius:6px; padding:4px 7px; cursor:pointer; font-size:12px; font-family:inherit; }
-
-  /* WHATSAPP */
   .wa-box { background:#0d1f12; border:1px solid #16a34a33; border-radius:10px; padding:14px; }
   .wa-text { font-family:inherit; font-size:13px; color:#e2e8f0; white-space:pre-wrap; line-height:1.8; }
-
-  /* AI RESULT */
   .ai-result { background:#0d2818; border:1px solid #16a34a44; border-radius:10px; padding:12px; margin-top:14px; }
-
-  /* PDF UPLOAD */
   .pdf-drop { display:block; border:2px dashed #334155; border-radius:10px; padding:28px; text-align:center; cursor:pointer; margin-bottom:10px; }
   .pdf-drop.has-file { border-color:#38bdf8; background:#1e3a5f11; }
-
   .example-hint { background:#1e293b; border:1px solid #334155; border-radius:8px; padding:10px; font-size:12px; color:#475569; margin-bottom:10px; line-height:1.7; }
-
   .flex-row { display:flex; gap:8px; }
   .mt8 { margin-top:8px; }
   .mt14 { margin-top:14px; }
@@ -105,28 +69,24 @@
   .mb14 { margin-bottom:14px; }
   .err { color:#ef4444; font-size:12px; margin-bottom:8px; }
   .empty { text-align:center; color:#475569; padding:40px; font-size:13px; }
-  .arrow { color:#64748b; font-size:13px; }
   .api-change { background:none; border:none; color:#64748b; font-size:11px; cursor:pointer; text-decoration:underline; font-family:inherit; }
+  .urgent-badge { background:#ef444422; border:1px solid #ef444444; border-radius:8px; padding:10px 12px; margin-bottom:8px; font-size:12px; color:#ef4444; }
 </style>
 </head>
 <body>
 
-<!-- API KEY SCREEN -->
 <div id="apiScreen">
   <h2>🔑 مفتاح Anthropic API</h2>
-  <p>هذا المفتاح يُخزّن في المتصفح فقط على جهازك<br>ولا يُرسل لأي جهة غير Anthropic</p>
+  <p>يُخزّن في المتصفح فقط على جهازك</p>
   <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
-  <button class="btn btn-primary" id="apiSaveBtn" onclick="saveApiKey()">دخول</button>
+  <button class="btn" id="apiSaveBtn" onclick="saveApiKey()" style="background:linear-gradient(135deg,#38bdf8,#0ea5e9);color:#0f172a;border:none;border-radius:10px;padding:13px;font-weight:700;font-size:15px;cursor:pointer;font-family:inherit;width:100%;max-width:420px;margin-top:8px;">دخول</button>
 </div>
 
-<!-- MAIN APP (hidden until key saved) -->
 <div id="app" style="display:none;">
-
-  <!-- Header -->
   <div class="header">
     <div>
       <div class="header-title">🏗️ لوحة المتابعة الميدانية</div>
-      <div class="header-sub">Landsterling — Al Majal Al Arabi</div>
+      <div class="header-sub">Landsterling — TBC TAIF</div>
     </div>
     <div class="badges">
       <div class="badge" style="background:#ef444418;border:1px solid #ef444433;">
@@ -137,10 +97,13 @@
         <div class="badge-val" id="pendingNotesBadge" style="color:#f59e0b;">0</div>
         <div class="badge-lbl">متابعات</div>
       </div>
+      <div class="badge" style="background:#ef444418;border:1px solid #ef444433;">
+        <div class="badge-val" id="urgentBadge" style="color:#ef4444;">0</div>
+        <div class="badge-lbl">عاجل</div>
+      </div>
     </div>
   </div>
 
-  <!-- Tabs -->
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('input')">📥 إدخال</button>
     <button class="tab-btn" onclick="switchTab('deductions')">⚠️ غرامات</button>
@@ -149,25 +112,19 @@
   </div>
 
   <div class="content">
-
-    <!-- INPUT TAB -->
     <div id="tab-input">
       <div class="mode-toggle">
         <button class="mode-btn active" id="modeTextBtn" onclick="setMode('text')">✍️ كتابة نصية</button>
         <button class="mode-btn" id="modePdfBtn" onclick="setMode('pdf')">📄 رفع PDF</button>
       </div>
-
-      <!-- Text mode -->
       <div id="modeText">
-        <div class="example-hint">مثال: "زرت القادسية اليوم، فني التكييف غايب وما عندهم uniform، وسألت المديرة عن العقد بس ما ردت"</div>
+        <div class="example-hint">مثال: "زرت الثانوية الأولى بالحوية، طفايتان فارغتان بالدور الأرضي، وفيش محترق في دورة مياه المديرة"</div>
         <textarea id="freeText" placeholder="اكتب ملاحظة الزيارة هنا..." rows="5" class="mb8"></textarea>
         <div class="err" id="textErr" style="display:none;"></div>
         <button class="btn btn-primary" id="analyzeTextBtn" onclick="analyzeText()">🤖 تحليل وفرز تلقائي</button>
       </div>
-
-      <!-- PDF mode -->
       <div id="modePdf" style="display:none;">
-        <div class="example-hint">ارفع تقرير TFMP بصيغة PDF وسيقرأه الـ AI ويستخرج منه تلقائياً</div>
+        <div class="example-hint">ارفع تقرير TFMP بصيغة PDF</div>
         <label class="pdf-drop" id="pdfDrop">
           <input type="file" accept=".pdf" id="pdfInput" style="display:none;" onchange="handlePdf(this)">
           <div id="pdfIcon" style="font-size:28px;">☁️</div>
@@ -176,46 +133,36 @@
         <div class="err" id="pdfErr" style="display:none;"></div>
         <button class="btn btn-primary" id="analyzePdfBtn" onclick="analyzePdf()" disabled>🤖 قراءة وتحليل الـ PDF</button>
       </div>
-
-      <!-- Result -->
       <div id="aiResult" style="display:none;" class="ai-result">
         <div style="color:#4ade80;font-size:13px;font-weight:600;margin-bottom:8px;">✅ تم التحليل بنجاح</div>
         <div id="aiResultText" style="font-size:12px;color:#94a3b8;line-height:1.8;"></div>
       </div>
-
       <div style="margin-top:14px;text-align:left;">
         <button class="api-change" onclick="changeApiKey()">تغيير مفتاح API</button>
       </div>
     </div>
 
-    <!-- DEDUCTIONS TAB -->
     <div id="tab-deductions" style="display:none;">
-      <input id="schoolSearch" placeholder="🔍 ابحث عن مدرسة..." oninput="renderSchools()" class="mb8">
+      <input id="schoolSearch" placeholder="🔍 ابحث عن مدرسة أو رقم وزاري..." oninput="renderSchools()" class="mb8">
       <div id="schoolsList"></div>
       <button class="btn btn-green mt14" onclick="generateWhatsapp()">💬 توليد نص الواتس</button>
     </div>
 
-    <!-- NOTES TAB -->
     <div id="tab-notes" style="display:none;">
       <div style="background:#1e293b;border:1px solid #334155;border-radius:10px;padding:13px;margin-bottom:14px;">
         <div style="font-size:13px;font-weight:600;color:#38bdf8;margin-bottom:9px;">➕ ملاحظة جديدة</div>
-        <select id="noteSchool" class="mb8">
-          <option value="">-- مدرسة (اختياري) --</option>
-        </select>
+        <select id="noteSchool" class="mb8"><option value="">-- مدرسة (اختياري) --</option></select>
         <textarea id="noteText" placeholder="اكتب ملاحظتك..." rows="3" class="mb8"></textarea>
         <div class="flex-row">
-          <select id="notePriority" style="flex:1;">
-            <option>عالي</option><option selected>متوسط</option><option>منخفض</option>
-          </select>
+          <select id="notePriority" style="flex:1;"><option>عالي</option><option selected>متوسط</option><option>منخفض</option></select>
           <button onclick="addNote()" style="flex:2;padding:10px;background:#38bdf8;border:none;border-radius:8px;color:#0f172a;font-weight:700;cursor:pointer;font-family:inherit;">حفظ</button>
         </div>
       </div>
       <div id="notesList"></div>
     </div>
 
-    <!-- WHATSAPP TAB -->
     <div id="tab-whatsapp" style="display:none;">
-      <div id="waEmpty" class="empty">اذهب لتبويب الغرامات واضغط "توليد نص الواتس"<br><br>
+      <div id="waEmpty" class="empty">اضغط "توليد نص الواتس" من تبويب الغرامات<br><br>
         <button class="btn btn-green" style="max-width:280px;" onclick="generateWhatsapp()">💬 توليد الآن</button>
       </div>
       <div id="waContent" style="display:none;">
@@ -226,65 +173,47 @@
         <div class="wa-box"><pre class="wa-text" id="waText"></pre></div>
       </div>
     </div>
-
   </div>
 </div>
 
 <script>
-// ── DATA ──────────────────────────────────────────────
 const SCHOOLS = [
-  {id:29105,name:"القادسية الابتدائية",type:"L"},
-  {id:29109,name:"النهروان الابتدائية",type:"L"},
-  {id:29110,name:"القديرة الابتدائية",type:"S"},
-  {id:29113,name:"ابي أيوب الانصاري الابتدائية",type:"M"},
-  {id:29114,name:"بدر الابتدائية",type:"M"},
-  {id:29115,name:"السدرة الابتدائية",type:"M"},
-  {id:29116,name:"الخبراء الابتدائية",type:"S"},
-  {id:29117,name:"الفيصلية الابتدائية",type:"M"},
-  {id:29126,name:"الهجره الابتدائية",type:"M"},
-  {id:29136,name:"السيل الصغير الابتدائية",type:"M"},
-  {id:29138,name:"السيل الكبير الابتدائية",type:"S"},
-  {id:29139,name:"الغافقي الابتدائية",type:"M"},
-  {id:29146,name:"الفرع الابتدائية",type:"S"},
-  {id:29150,name:"ابن خلدون الابتدائية",type:"S"},
-  {id:29151,name:"الأمير محمد بن عبدالرحمن الابتدائية",type:"L"},
-  {id:29152,name:"الأحنف بن قيس الابتدائية",type:"M"},
-  {id:29154,name:"الثقافه الابتدائية",type:"S"},
-  {id:29157,name:"الحسن بن الهيثم الابتدائية",type:"M"},
-  {id:29158,name:"حنين الابتدائية",type:"M"},
-  {id:29160,name:"الخالدية الابتدائية",type:"L"},
-  {id:29168,name:"عثمان الثقفي الابتدائية",type:"M"},
-  {id:29170,name:"عروة بن مسعود الابتدائية",type:"M"},
-  {id:29171,name:"الحارث بن اوس الابتدائية",type:"S"},
-  {id:29172,name:"عمار بن ياسر الابتدائية",type:"M"},
-  {id:29173,name:"وائل بن حجر الحضرمي الابتدائية",type:"M"},
-  {id:29176,name:"القيم الاعلى الابتدائية",type:"L"},
-  {id:29177,name:"مالك بن عوف الابتدائية",type:"L"},
-  {id:29178,name:"المثناه الابتدائية",type:"S"},
-  {id:29187,name:"الوليد بن عبدالملك الابتدائية",type:"M"},
-  {id:29192,name:"صقر الجزيرة الابتدائية",type:"L"},
-  {id:29193,name:"الأمير أحمد بن عبدالعزيز الابتدائية",type:"M"},
-  {id:29198,name:"عبادة بن الصامت الابتدائية",type:"L"},
-  {id:29202,name:"أُبي بن كعب الابتدائية",type:"L"},
-  {id:29203,name:"أسعد بن زرارة الابتدائية",type:"M"},
-  {id:29212,name:"الامام الشافعي الابتدائية",type:"S"},
-  {id:29219,name:"مران الابتدائية",type:"M"},
-  {id:29221,name:"الركنة الابتدائية",type:"S"},
-  {id:29223,name:"النصائف الابتدائية",type:"M"},
-  {id:29225,name:"نمران الابتدائية",type:"S"},
-  {id:29226,name:"الحفيرة الابتدائية",type:"S"},
-  {id:29227,name:"طارق بن زياد الابتدائية",type:"M"},
-  {id:29228,name:"ظلم الابتدائية",type:"L"},
-  {id:29240,name:"وادي المحرم الابتدائية",type:"S"},
-  {id:29243,name:"المنصورية الابتدائية",type:"M"},
-  {id:29244,name:"الحائرية الابتدائية",type:"M"},
-  {id:29245,name:"الحشرج الابتدائية",type:"M"},
-  {id:29246,name:"الخالدية الابتدائية بحضن",type:"M"},
-  {id:29252,name:"العرقين الابتدائية",type:"S"},
-  {id:29254,name:"العلبة الابتدائية",type:"S"},
-  {id:29255,name:"القوامة الابتدائية",type:"S"},
-  {id:29260,name:"سراقة بن مالك الابتدائية",type:"M"},
-  {id:29261,name:"أبو راكة الابتدائية",type:"S"},
+  {id:"30512", name:"الابتدائية الثانية بالطائف"},
+  {id:"30537", name:"الابتدائية السابعة والعشرون للطفولة المبكرة"},
+  {id:"30550", name:"الإبتدائية الأربعون بالطائف"},
+  {id:"30569", name:"الإبتدائية الأولى بالحوية"},
+  {id:"30571", name:"الإبتدائية الثالثة بالحوية"},
+  {id:"30572", name:"الإبتدائية الرابعة بالحوية"},
+  {id:"30579", name:"إبتدائية السيل الصغير"},
+  {id:"30714", name:"الابتدائية الثامنة بالحوية"},
+  {id:"30770", name:"ابتدائية الواسط الأولى للطفولة المبكرة"},
+  {id:"30782", name:"الابتدائية العاشرة بالحوية للطفولة المبكرة"},
+  {id:"30806", name:"إبتدائية التحفيظ الأولى بالحويه"},
+  {id:"30813", name:"الإبتدائية الثامنة والستون بالطائف"},
+  {id:"30821", name:"مدرسة حراء للطفولة المبكرة"},
+  {id:"30858", name:"المتوسطة الأولى بالحوية"},
+  {id:"30873", name:"متوسطة السيل الصغير"},
+  {id:"30922", name:"المتوسطة الثالثة بالحوية"},
+  {id:"30962", name:"المتوسطة الحادية والثلاثون بالطائف"},
+  {id:"31251", name:"المتوسطة الثامنة بالحوية"},
+  {id:"31252", name:"متوسطة الواسط بالحوية"},
+  {id:"31343", name:"المتوسطة السابعة والأربعون"},
+  {id:"31527", name:"الروضة الثانية بالحوية"},
+  {id:"31620", name:"ابتدائية مثملة بالحوية"},
+  {id:"130501", name:"الابتدائية الثانية بالواسط"},
+  {id:"130504", name:"ابتدائية شرق السيل"},
+  {id:"130513", name:"متوسطة الواسط الثانية"},
+  {id:"130579", name:"الابتدائية السادسة والسبعون"},
+  {id:"130795", name:"مدرسة رحاب للطفولة المبكرة"},
+  {id:"131426", name:"مدرسة اجنادين للطفولة المبكرة"},
+  {id:"M130595", name:"الثانوية الأولى بالحوية - مسارات"},
+  {id:"M309975", name:"الثانوية السادسة بالطائف - مسارات"},
+  {id:"M39130518", name:"الثانوية الثانية بالواسط - مسارات"},
+  {id:"M39130565", name:"ثانوية رقية الأسلمية - مسارات"},
+  {id:"M3931030", name:"الثانوية الثانية بالحوية - مسارات"},
+  {id:"M3931059", name:"ثانوية السيل الصغير بالحوية - مسارات"},
+  {id:"M3931416", name:"ثانوية الواسط الأولى بالحوية - مسارات"},
+  {id:"M531051", name:"الثانوية الثالثة بالحوية - مسارات"},
 ];
 
 const TYPES = {
@@ -333,300 +262,224 @@ const TYPES = {
   ]},
 };
 
-const SYSTEM_PROMPT = `أنت مساعد متخصص في تحليل تقارير الإشراف الميداني على مدارس.
-مهمتك: قرأ الملاحظة واستخرج منها:
-1. اسم المدرسة أو أسماء المدارس
-2. بنود الغرامات المخالفة حسب نوع العمل
+// بنود العاجل — خطر مباشر على السلامة
+const URGENT_KEYS = ["elec_tech","ac_tech","mech_tech","plumber_tech","civil_tech","safety_systems"];
+
+const SYSTEM_PROMPT = `أنت مساعد متخصص في تحليل تقارير الإشراف الميداني على مدارس في الطائف.
+
+مهمتك: قرأ الملاحظة أو التقرير واستخرج:
+1. اسم المدرسة أو رقمها الوزاري
+2. بنود الغرامات المخالفة
 3. الملاحظات الشخصية للمتابعة
-4. التنبيهات المهمة لقروب الواتس
+4. التنبيهات العاجلة للواتس (خطر مباشر على السلامة فقط: فيش محترق/متضرر، طفايات فارغة، أشياء آيلة للسقوط، نوافذ مكسورة خطرة، انسداد صرف السطح، ماس كهربائي)
 
 بنود الغرامات:
-AC (تكييف): uniform, tools, no_car_sticker, no_car, elec_tech, ac_tech, consumables, spare_consumable, spare_non_consumable, ops_mgmt, admin_team
-CLN (نظافة): uniform, tools, no_car_sticker, no_car, absence_days, absent_workers, consumables, equipment, tank_cleaning, pest_control, ops_mgmt, admin_team
-MO (صيانة): uniform, tools, no_car_sticker, no_car, elec_tech, mech_tech, plumber_tech, civil_tech, consumables, spare_consumable, civil_spare, safety_systems, ops_mgmt, admin_team
+AC: uniform, tools, no_car_sticker, no_car, elec_tech, ac_tech, consumables, spare_consumable, spare_non_consumable, ops_mgmt, admin_team
+CLN: uniform, tools, no_car_sticker, no_car, absence_days, absent_workers, consumables, equipment, tank_cleaning, pest_control, ops_mgmt, admin_team
+MO: uniform, tools, no_car_sticker, no_car, elec_tech, mech_tech, plumber_tech, civil_tech, consumables, spare_consumable, civil_spare, safety_systems, ops_mgmt, admin_team
 
-أجب فقط بـ JSON بدون أي نص إضافي:
+أجب فقط بـ JSON:
 {
-  "schools": [{"name":"اسم المدرسة","deductions":{"AC":["key1"],"CLN":[],"MO":["key1","key2"]}}],
-  "personal_notes": [{"school":"اسم أو فارغ","text":"نص","priority":"عالي أو متوسط أو منخفض"}],
-  "whatsapp_highlights": ["تنبيه مهم"]
+  "schools": [{"name":"اسم أو رقم المدرسة","deductions":{"AC":[],"CLN":[],"MO":[]}}],
+  "personal_notes": [{"school":"","text":"","priority":"عالي أو متوسط أو منخفض"}],
+  "urgent_whatsapp": ["تنبيه عاجل فقط"]
 }`;
 
-// ── STATE ──────────────────────────────────────────────
-let apiKey = '';
-let deductions = {};      // {schoolId: {AC:{key:bool}, CLN:{}, MO:{}}}
-let notes = [];
-let waHighlights = [];
-let expandedSchool = null;
-let activeType = 'AC';
-let pdfBase64 = null;
-let currentMode = 'text';
-let lastAiResult = null;
+let apiKey='', deductions={}, notes=[], urgentItems=[], expandedSchool=null, activeType='AC', pdfBase64=null;
 
-// ── API KEY ────────────────────────────────────────────
-function saveApiKey() {
-  const k = document.getElementById('apiKeyInput').value.trim();
-  if (!k.startsWith('sk-ant-') && !k.startsWith('sk-')) {
-    alert('مفتاح غير صحيح، يبدأ بـ sk-ant-'); return;
-  }
-  apiKey = k;
-  localStorage.setItem('lm_apikey', k);
-  document.getElementById('apiScreen').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
+function saveApiKey(){
+  const k=document.getElementById('apiKeyInput').value.trim();
+  if(!k.startsWith('sk-ant-')&&!k.startsWith('sk-')){alert('مفتاح غير صحيح');return;}
+  apiKey=k; localStorage.setItem('lm_apikey',k);
+  document.getElementById('apiScreen').style.display='none';
+  document.getElementById('app').style.display='block';
   initApp();
 }
+function changeApiKey(){localStorage.removeItem('lm_apikey');location.reload();}
 
-function changeApiKey() {
-  localStorage.removeItem('lm_apikey');
-  document.getElementById('apiScreen').style.display = 'flex';
-  document.getElementById('app').style.display = 'none';
-  document.getElementById('apiKeyInput').value = '';
-}
-
-// ── INIT ───────────────────────────────────────────────
-window.onload = () => {
-  const saved = localStorage.getItem('lm_apikey');
-  if (saved) {
-    apiKey = saved;
-    document.getElementById('apiScreen').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    initApp();
-  }
+window.onload=()=>{
+  const saved=localStorage.getItem('lm_apikey');
+  if(saved){apiKey=saved;document.getElementById('apiScreen').style.display='none';document.getElementById('app').style.display='block';initApp();}
 };
 
-function initApp() {
-  // load saved state
-  try {
-    const sd = localStorage.getItem('lm_deductions');
-    const sn = localStorage.getItem('lm_notes');
-    const sw = localStorage.getItem('lm_wahighlights');
-    if (sd) deductions = JSON.parse(sd);
-    if (sn) notes = JSON.parse(sn);
-    if (sw) waHighlights = JSON.parse(sw);
-  } catch(e) {}
-
-  // populate school select in notes
-  const sel = document.getElementById('noteSchool');
-  SCHOOLS.forEach(s => {
-    const o = document.createElement('option');
-    o.value = s.name; o.textContent = s.name;
-    sel.appendChild(o);
-  });
-
-  renderSchools();
-  renderNotes();
-  updateBadges();
+function initApp(){
+  try{
+    const sd=localStorage.getItem('lm_deductions');
+    const sn=localStorage.getItem('lm_notes');
+    const su=localStorage.getItem('lm_urgent');
+    if(sd)deductions=JSON.parse(sd);
+    if(sn)notes=JSON.parse(sn);
+    if(su)urgentItems=JSON.parse(su);
+  }catch(e){}
+  const sel=document.getElementById('noteSchool');
+  SCHOOLS.forEach(s=>{const o=document.createElement('option');o.value=s.name;o.textContent=s.name;sel.appendChild(o);});
+  renderSchools(); renderNotes(); updateBadges();
 }
 
-function save() {
-  localStorage.setItem('lm_deductions', JSON.stringify(deductions));
-  localStorage.setItem('lm_notes', JSON.stringify(notes));
-  localStorage.setItem('lm_wahighlights', JSON.stringify(waHighlights));
+function save(){
+  localStorage.setItem('lm_deductions',JSON.stringify(deductions));
+  localStorage.setItem('lm_notes',JSON.stringify(notes));
+  localStorage.setItem('lm_urgent',JSON.stringify(urgentItems));
 }
 
-// ── TABS ───────────────────────────────────────────────
-function switchTab(t) {
-  ['input','deductions','notes','whatsapp'].forEach(x => {
-    document.getElementById('tab-'+x).style.display = x===t ? 'block' : 'none';
-  });
-  document.querySelectorAll('.tab-btn').forEach((b,i) => {
-    b.classList.toggle('active', ['input','deductions','notes','whatsapp'][i]===t);
-  });
+function switchTab(t){
+  ['input','deductions','notes','whatsapp'].forEach(x=>{document.getElementById('tab-'+x).style.display=x===t?'block':'none';});
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>{b.classList.toggle('active',['input','deductions','notes','whatsapp'][i]===t);});
 }
 
-// ── MODE ───────────────────────────────────────────────
-function setMode(m) {
-  currentMode = m;
-  document.getElementById('modeText').style.display = m==='text' ? 'block' : 'none';
-  document.getElementById('modePdf').style.display = m==='pdf' ? 'block' : 'none';
-  document.getElementById('modeTextBtn').classList.toggle('active', m==='text');
-  document.getElementById('modePdfBtn').classList.toggle('active', m==='pdf');
+function setMode(m){
+  document.getElementById('modeText').style.display=m==='text'?'block':'none';
+  document.getElementById('modePdf').style.display=m==='pdf'?'block':'none';
+  document.getElementById('modeTextBtn').classList.toggle('active',m==='text');
+  document.getElementById('modePdfBtn').classList.toggle('active',m==='pdf');
 }
 
-// ── AI CALL ────────────────────────────────────────────
-async function callAI(messages) {
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-      'anthropic-dangerous-direct-browser-access': 'true'
-    },
-    body: JSON.stringify({ model:'claude-sonnet-4-6', max_tokens:1000, system:SYSTEM_PROMPT, messages })
+async function callAI(messages){
+  const res=await fetch('https://api.anthropic.com/v1/messages',{
+    method:'POST',
+    headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+    body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:1000,system:SYSTEM_PROMPT,messages})
   });
-  const data = await res.json();
-  if (data.error) throw new Error(data.error.message);
-  const text = (data.content||[]).map(c=>c.text||'').join('');
+  const data=await res.json();
+  if(data.error)throw new Error(data.error.message);
+  const text=(data.content||[]).map(c=>c.text||'').join('');
   return JSON.parse(text.replace(/```json|```/g,'').trim());
 }
 
-function applyResult(parsed) {
-  if (parsed.schools?.length > 0) {
-    parsed.schools.forEach(entry => {
-      const school = SCHOOLS.find(s =>
-        s.name === entry.name || s.name.includes(entry.name) || entry.name.includes(s.name)
-      );
-      if (!school) return;
-      const id = school.id;
-      deductions[id] = deductions[id] || {};
-      ['AC','CLN','MO'].forEach(type => {
-        const keys = entry.deductions?.[type] || [];
-        if (!keys.length) return;
-        deductions[id][type] = deductions[id][type] || {};
-        keys.forEach(k => { deductions[id][type][k] = true; });
+function matchSchool(name){
+  return SCHOOLS.find(s=>s.name===name||s.id===name||s.name.includes(name)||name.includes(s.name)||s.id===name.trim());
+}
+
+function applyResult(parsed){
+  if(parsed.schools?.length>0){
+    parsed.schools.forEach(entry=>{
+      const school=matchSchool(entry.name);
+      if(!school)return;
+      deductions[school.id]=deductions[school.id]||{};
+      ['AC','CLN','MO'].forEach(type=>{
+        const keys=entry.deductions?.[type]||[];
+        if(!keys.length)return;
+        deductions[school.id][type]=deductions[school.id][type]||{};
+        keys.forEach(k=>{deductions[school.id][type][k]=true;});
       });
     });
   }
-  if (parsed.personal_notes?.length > 0) {
-    const newNotes = parsed.personal_notes.map(n => ({
-      id: Date.now()+Math.random(), school:n.school||'', text:n.text,
-      priority:n.priority||'متوسط', date:new Date().toLocaleDateString('ar-SA'), done:false, source:'ai'
-    }));
-    notes = [...newNotes, ...notes];
+  if(parsed.personal_notes?.length>0){
+    const newNotes=parsed.personal_notes.map(n=>({id:Date.now()+Math.random(),school:n.school||'',text:n.text,priority:n.priority||'متوسط',date:new Date().toLocaleDateString('ar-SA'),done:false,source:'ai'}));
+    notes=[...newNotes,...notes];
   }
-  if (parsed.whatsapp_highlights?.length > 0) {
-    waHighlights = [...(parsed.whatsapp_highlights||[]), ...waHighlights];
+  if(parsed.urgent_whatsapp?.length>0){
+    urgentItems=[...(parsed.urgent_whatsapp||[]),...urgentItems];
   }
-  save();
-  renderSchools();
-  renderNotes();
-  updateBadges();
-  lastAiResult = parsed;
-
-  // show result summary
-  const r = document.getElementById('aiResult');
-  const rt = document.getElementById('aiResultText');
-  let lines = [];
-  if (parsed.schools?.length) lines.push(`🏫 ${parsed.schools.length} مدرسة — تم رصد المخالفات`);
-  if (parsed.personal_notes?.length) lines.push(`📋 ${parsed.personal_notes.length} ملاحظة شخصية أُضيفت`);
-  if (parsed.whatsapp_highlights?.length) lines.push(`💬 ${parsed.whatsapp_highlights.length} تنبيه للواتس`);
-  rt.textContent = lines.join('\n');
-  r.style.display = 'block';
+  save(); renderSchools(); renderNotes(); updateBadges();
+  const r=document.getElementById('aiResult');
+  const rt=document.getElementById('aiResultText');
+  let lines=[];
+  if(parsed.schools?.length)lines.push(`🏫 ${parsed.schools.length} مدرسة — تم رصد المخالفات`);
+  if(parsed.personal_notes?.length)lines.push(`📋 ${parsed.personal_notes.length} ملاحظة شخصية أُضيفت`);
+  if(parsed.urgent_whatsapp?.length)lines.push(`⚡ ${parsed.urgent_whatsapp.length} تنبيه عاجل للواتس`);
+  rt.textContent=lines.join('\n');
+  r.style.display='block';
 }
 
-async function analyzeText() {
-  const text = document.getElementById('freeText').value.trim();
-  if (!text) return;
-  const btn = document.getElementById('analyzeTextBtn');
-  const errEl = document.getElementById('textErr');
-  btn.disabled = true; btn.textContent = '⏳ جاري التحليل...';
-  errEl.style.display = 'none';
-  try {
-    const parsed = await callAI([{role:'user', content:text}]);
+async function analyzeText(){
+  const text=document.getElementById('freeText').value.trim();
+  if(!text)return;
+  const btn=document.getElementById('analyzeTextBtn');
+  const errEl=document.getElementById('textErr');
+  btn.disabled=true;btn.textContent='⏳ جاري التحليل...';errEl.style.display='none';
+  try{
+    const parsed=await callAI([{role:'user',content:text}]);
     applyResult(parsed);
-    document.getElementById('freeText').value = '';
+    document.getElementById('freeText').value='';
     switchTab('deductions');
-  } catch(e) {
-    errEl.textContent = 'حدث خطأ: ' + e.message;
-    errEl.style.display = 'block';
-  }
-  btn.disabled = false; btn.textContent = '🤖 تحليل وفرز تلقائي';
+  }catch(e){errEl.textContent='حدث خطأ: '+e.message;errEl.style.display='block';}
+  btn.disabled=false;btn.textContent='🤖 تحليل وفرز تلقائي';
 }
 
-function handlePdf(input) {
-  const f = input.files[0]; if (!f) return;
-  const drop = document.getElementById('pdfDrop');
+function handlePdf(input){
+  const f=input.files[0];if(!f)return;
+  const drop=document.getElementById('pdfDrop');
   drop.classList.add('has-file');
-  document.getElementById('pdfIcon').textContent = '📄';
-  document.getElementById('pdfLabel').textContent = f.name;
-  document.getElementById('pdfLabel').style.color = '#38bdf8';
-  document.getElementById('analyzePdfBtn').disabled = false;
-
-  const reader = new FileReader();
-  reader.onload = () => { pdfBase64 = reader.result.split(',')[1]; };
+  document.getElementById('pdfIcon').textContent='📄';
+  document.getElementById('pdfLabel').textContent=f.name;
+  document.getElementById('pdfLabel').style.color='#38bdf8';
+  document.getElementById('analyzePdfBtn').disabled=false;
+  const reader=new FileReader();
+  reader.onload=()=>{pdfBase64=reader.result.split(',')[1];};
   reader.readAsDataURL(f);
 }
 
-async function analyzePdf() {
-  if (!pdfBase64) return;
-  const btn = document.getElementById('analyzePdfBtn');
-  const errEl = document.getElementById('pdfErr');
-  btn.disabled = true; btn.textContent = '⏳ جاري القراءة...';
-  errEl.style.display = 'none';
-  try {
-    const parsed = await callAI([{role:'user', content:[
-      {type:'document', source:{type:'base64', media_type:'application/pdf', data:pdfBase64}},
-      {type:'text', text:'حلل هذا التقرير واستخرج المعلومات المطلوبة'}
+async function analyzePdf(){
+  if(!pdfBase64)return;
+  const btn=document.getElementById('analyzePdfBtn');
+  const errEl=document.getElementById('pdfErr');
+  btn.disabled=true;btn.textContent='⏳ جاري القراءة...';errEl.style.display='none';
+  try{
+    const parsed=await callAI([{role:'user',content:[
+      {type:'document',source:{type:'base64',media_type:'application/pdf',data:pdfBase64}},
+      {type:'text',text:'حلل هذا التقرير واستخرج المعلومات المطلوبة'}
     ]}]);
     applyResult(parsed);
-    pdfBase64 = null;
-    document.getElementById('pdfInput').value = '';
+    pdfBase64=null;
+    document.getElementById('pdfInput').value='';
     document.getElementById('pdfDrop').classList.remove('has-file');
-    document.getElementById('pdfIcon').textContent = '☁️';
-    document.getElementById('pdfLabel').textContent = 'اضغط لرفع ملف PDF';
-    document.getElementById('pdfLabel').style.color = '#475569';
+    document.getElementById('pdfIcon').textContent='☁️';
+    document.getElementById('pdfLabel').textContent='اضغط لرفع ملف PDF';
+    document.getElementById('pdfLabel').style.color='#475569';
     switchTab('deductions');
-  } catch(e) {
-    errEl.textContent = 'حدث خطأ: ' + e.message;
-    errEl.style.display = 'block';
-  }
-  btn.disabled = false; btn.textContent = '🤖 قراءة وتحليل الـ PDF';
+  }catch(e){errEl.textContent='حدث خطأ: '+e.message;errEl.style.display='block';}
+  btn.disabled=false;btn.textContent='🤖 قراءة وتحليل الـ PDF';
 }
 
-// ── DEDUCTIONS ─────────────────────────────────────────
-function getCount(id, type) {
-  return Object.values(deductions[id]?.[type]||{}).filter(Boolean).length;
-}
-function getTotalCount(id) {
-  return ['AC','CLN','MO'].reduce((s,t)=>s+getCount(id,t),0);
-}
+function getCount(id,type){return Object.values(deductions[id]?.[type]||{}).filter(Boolean).length;}
+function getTotalCount(id){return ['AC','CLN','MO'].reduce((s,t)=>s+getCount(id,t),0);}
 
-function toggleDeduction(id, type, key) {
-  deductions[id] = deductions[id]||{};
-  deductions[id][type] = deductions[id][type]||{};
-  deductions[id][type][key] = !deductions[id][type][key];
-  save(); renderSchools(); updateBadges();
+function toggleDeduction(id,type,key){
+  deductions[id]=deductions[id]||{};
+  deductions[id][type]=deductions[id][type]||{};
+  deductions[id][type][key]=!deductions[id][type][key];
+  save();renderSchools();updateBadges();
 }
 
-function renderSchools() {
-  const q = (document.getElementById('schoolSearch')||{}).value || '';
-  const list = document.getElementById('schoolsList');
-  if (!list) return;
-  const filtered = SCHOOLS.filter(s => s.name.includes(q) || String(s.id).includes(q));
-
-  list.innerHTML = filtered.map(school => {
-    const count = getTotalCount(school.id);
-    const isExp = expandedSchool === school.id;
-    const badgesHtml = ['AC','CLN','MO'].map(t => {
-      const c = getCount(school.id, t);
-      return c > 0 ? `<span class="d-badge" style="background:${TYPES[t].color}22;color:${TYPES[t].color};border:1px solid ${TYPES[t].color}44;">${t} ${c}</span>` : '';
+function renderSchools(){
+  const q=(document.getElementById('schoolSearch')||{}).value||'';
+  const list=document.getElementById('schoolsList');
+  if(!list)return;
+  const filtered=SCHOOLS.filter(s=>s.name.includes(q)||s.id.includes(q));
+  list.innerHTML=filtered.map(school=>{
+    const count=getTotalCount(school.id);
+    const isExp=expandedSchool===school.id;
+    const badgesHtml=['AC','CLN','MO'].map(t=>{
+      const c=getCount(school.id,t);
+      return c>0?`<span class="d-badge" style="background:${TYPES[t].color}22;color:${TYPES[t].color};border:1px solid ${TYPES[t].color}44;">${t} ${c}</span>`:'';
     }).join('');
-
-    let expandedHtml = '';
-    if (isExp) {
-      const typeTabs = ['AC','CLN','MO'].map(t => {
-        const c = getCount(school.id, t);
-        const cls = activeType===t ? `type-tab active-${t.toLowerCase()}` : 'type-tab';
-        return `<button class="${cls}" onclick="setActiveType('${t}')">${TYPES[t].label}${c>0?` <span style="background:${TYPES[t].color};color:#000;border-radius:4px;padding:1px 4px;font-size:10px;">${c}</span>`:''}</button>`;
+    let expandedHtml='';
+    if(isExp){
+      const typeTabs=['AC','CLN','MO'].map(t=>{
+        const c=getCount(school.id,t);
+        const isAct=activeType===t;
+        return `<button class="type-tab" style="${isAct?`background:${TYPES[t].color}22;border-color:${TYPES[t].color};color:${TYPES[t].color};font-weight:600;`:''}" onclick="setActiveType('${t}')">${TYPES[t].label}${c>0?` <span style="background:${TYPES[t].color};color:#000;border-radius:4px;padding:1px 4px;font-size:10px;">${c}</span>`:''}</button>`;
       }).join('');
-
-      const fields = TYPES[activeType].fields.map(f => {
-        const checked = deductions[school.id]?.[activeType]?.[f.key] || false;
-        const col = TYPES[activeType].color;
-        const chkStyle = checked ? `background:${col};border-color:${col};` : 'background:transparent;';
-        const itemStyle = checked ? `background:${col}22;border-color:${col};` : '';
-        return `<div class="field-item ${checked?'checked':''}" style="${itemStyle}" onclick="toggleDeduction(${school.id},'${activeType}','${f.key}')">
-          <div class="checkbox" style="${chkStyle}">${checked?'✓':''}</div>
+      const fields=TYPES[activeType].fields.map(f=>{
+        const checked=deductions[school.id]?.[activeType]?.[f.key]||false;
+        const col=TYPES[activeType].color;
+        return `<div class="field-item ${checked?'checked':''}" style="${checked?`background:${col}22;border-color:${col};`:''}" onclick="toggleDeduction('${school.id}','${activeType}','${f.key}')">
+          <div class="checkbox" style="${checked?`background:${col};border-color:${col};`:''}">${checked?'✓':''}</div>
           <span class="field-label">${f.label}</span>
         </div>`;
       }).join('');
-
-      expandedHtml = `<div class="expanded-panel">
-        <div class="type-tabs">${typeTabs}</div>
-        <div class="fields-grid">${fields}</div>
-      </div>`;
+      expandedHtml=`<div class="expanded-panel"><div class="type-tabs">${typeTabs}</div><div class="fields-grid">${fields}</div></div>`;
     }
-
     return `<div>
-      <div class="school-card ${isExp?'selected':''} ${count>0&&!isExp?'has-issues':''}" onclick="toggleExpand(${school.id})">
+      <div class="school-card ${isExp?'selected':''} ${count>0&&!isExp?'has-issues':''}" onclick="toggleExpand('${school.id}')">
         <div>
           <div class="school-name" style="color:${isExp?'#38bdf8':'#e2e8f0'}">${school.name}</div>
-          <div class="school-meta">MoE: ${school.id} • ${school.type}</div>
+          <div class="school-meta">رقم وزاري: ${school.id}</div>
         </div>
         <div class="deduction-badges">
-          ${badgesHtml || '<span style="color:#334155;font-size:11px;">لا مخالفات</span>'}
-          <span class="arrow">${isExp?'▲':'▼'}</span>
+          ${badgesHtml||'<span style="color:#334155;font-size:11px;">لا مخالفات</span>'}
+          <span style="color:#64748b;font-size:13px;">${isExp?'▲':'▼'}</span>
         </div>
       </div>
       ${expandedHtml}
@@ -634,50 +487,30 @@ function renderSchools() {
   }).join('');
 }
 
-function toggleExpand(id) {
-  expandedSchool = expandedSchool === id ? null : id;
-  activeType = 'AC';
-  renderSchools();
+function toggleExpand(id){expandedSchool=expandedSchool===id?null:id;activeType='AC';renderSchools();}
+function setActiveType(t){activeType=t;renderSchools();}
+
+function addNote(){
+  const text=document.getElementById('noteText').value.trim();
+  if(!text)return;
+  notes.unshift({id:Date.now(),school:document.getElementById('noteSchool').value,text,priority:document.getElementById('notePriority').value,date:new Date().toLocaleDateString('ar-SA'),done:false,source:'manual'});
+  document.getElementById('noteText').value='';
+  save();renderNotes();updateBadges();
 }
 
-function setActiveType(t) {
-  activeType = t;
-  renderSchools();
-}
+function toggleNote(id){notes=notes.map(n=>n.id===id?{...n,done:!n.done}:n);save();renderNotes();updateBadges();}
+function deleteNote(id){notes=notes.filter(n=>n.id!==id);save();renderNotes();updateBadges();}
 
-// ── NOTES ──────────────────────────────────────────────
-function addNote() {
-  const text = document.getElementById('noteText').value.trim();
-  if (!text) return;
-  notes.unshift({
-    id: Date.now(), school:document.getElementById('noteSchool').value,
-    text, priority:document.getElementById('notePriority').value,
-    date:new Date().toLocaleDateString('ar-SA'), done:false, source:'manual'
-  });
-  document.getElementById('noteText').value = '';
-  save(); renderNotes(); updateBadges();
-}
+const PCOLOR={عالي:'#ef4444',متوسط:'#f59e0b',منخفض:'#6b7280'};
 
-function toggleNote(id) {
-  notes = notes.map(n => n.id===id ? {...n, done:!n.done} : n);
-  save(); renderNotes(); updateBadges();
-}
-
-function deleteNote(id) {
-  notes = notes.filter(n => n.id!==id);
-  save(); renderNotes(); updateBadges();
-}
-
-const PCOLOR = {عالي:'#ef4444', متوسط:'#f59e0b', منخفض:'#6b7280'};
-
-function renderNotes() {
-  const list = document.getElementById('notesList');
-  if (!list) return;
-  if (!notes.length) { list.innerHTML = '<div class="empty">لا توجد ملاحظات</div>'; return; }
-  list.innerHTML = notes.map(n => `
+function renderNotes(){
+  const list=document.getElementById('notesList');
+  if(!list)return;
+  if(!notes.length){list.innerHTML='<div class="empty">لا توجد ملاحظات</div>';return;}
+  list.innerHTML=notes.map(n=>`
     <div class="note-card ${n.done?'done':''}" style="border-right:3px solid ${n.done?'#334155':PCOLOR[n.priority]||'#f59e0b'};">
       <div style="flex:1;">
-        ${n.school ? `<div class="note-school">🏫 ${n.school}</div>` : ''}
+        ${n.school?`<div class="note-school">🏫 ${n.school}</div>`:''}
         <div class="note-text ${n.done?'done':''}">${n.text}</div>
         <div class="note-meta">${n.date} • <span style="color:${PCOLOR[n.priority]||'#f59e0b'}">${n.priority}</span>${n.source==='ai'?' • <span style="color:#38bdf8">AI</span>':''}</div>
       </div>
@@ -689,58 +522,55 @@ function renderNotes() {
   `).join('');
 }
 
-// ── WHATSAPP ───────────────────────────────────────────
-function generateWhatsapp() {
-  const date = new Date().toLocaleDateString('ar-SA');
-  let msg = `📋 *تقرير الزيارة الميدانية*\n📅 ${date}\n\n`;
-  const withIssues = SCHOOLS.filter(s => getTotalCount(s.id) > 0);
-  if (!withIssues.length) {
-    msg += '✅ لا توجد مخالفات مرصودة.\n';
-  } else {
-    withIssues.forEach(school => {
-      msg += `🏫 *${school.name}*\n`;
-      ['AC','CLN','MO'].forEach(type => {
-        const active = TYPES[type].fields.filter(f => deductions[school.id]?.[type]?.[f.key]);
-        if (active.length) {
-          msg += `  ▸ ${TYPES[type].label}:\n`;
-          active.forEach(f => { msg += `    • ${f.label}\n`; });
-        }
+function generateWhatsapp(){
+  let msg='';
+  // العاجل فقط للقروب
+  const withUrgent=SCHOOLS.filter(s=>{
+    return ['AC','CLN','MO'].some(type=>
+      TYPES[type].fields.some(f=>URGENT_KEYS.includes(f.key)&&deductions[s.id]?.[type]?.[f.key])
+    );
+  });
+
+  if(urgentItems.length>0||withUrgent.length>0){
+    msg+='⚡ *تنبيهات عاجلة — تحتاج حل فوري*\n\n';
+    withUrgent.forEach(school=>{
+      let schoolMsg='';
+      ['AC','CLN','MO'].forEach(type=>{
+        TYPES[type].fields.forEach(f=>{
+          if(URGENT_KEYS.includes(f.key)&&deductions[school.id]?.[type]?.[f.key]){
+            schoolMsg+=`    • ${f.label}\n`;
+          }
+        });
       });
-      msg += '\n';
+      if(schoolMsg) msg+=`🏫 *${school.name}*\n${schoolMsg}\n`;
     });
+    urgentItems.forEach(u=>{msg+=`• ${u}\n`;});
+  }else{
+    msg+='✅ لا توجد تنبيهات عاجلة\n';
   }
-  if (waHighlights.length) {
-    msg += `⚡ *تنبيهات مهمة:*\n`;
-    waHighlights.forEach(h => { msg += `• ${h}\n`; });
-    msg += '\n';
-  }
-  const pending = notes.filter(n => !n.done);
-  if (pending.length) {
-    msg += `📌 *متابعات:*\n`;
-    pending.forEach(n => { msg += `• ${n.school?n.school+': ':''}${n.text}\n`; });
-  }
-  document.getElementById('waText').textContent = msg;
-  document.getElementById('waEmpty').style.display = 'none';
-  document.getElementById('waContent').style.display = 'block';
+
+  document.getElementById('waText').textContent=msg;
+  document.getElementById('waEmpty').style.display='none';
+  document.getElementById('waContent').style.display='block';
   switchTab('whatsapp');
 }
 
-function copyWhatsapp() {
-  const text = document.getElementById('waText').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    const btn = document.getElementById('copyBtn');
-    btn.textContent = '✓ تم النسخ';
-    btn.style.background = '#10b981';
-    setTimeout(() => { btn.textContent = '📋 نسخ النص'; btn.style.background = ''; }, 2000);
+function copyWhatsapp(){
+  const text=document.getElementById('waText').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById('copyBtn');
+    btn.textContent='✓ تم النسخ';btn.style.background='#10b981';
+    setTimeout(()=>{btn.textContent='📋 نسخ النص';btn.style.background='';},2000);
   });
 }
 
-// ── BADGES ────────────────────────────────────────────
-function updateBadges() {
-  const total = SCHOOLS.reduce((s,sc)=>s+getTotalCount(sc.id),0);
-  const pending = notes.filter(n=>!n.done).length;
-  document.getElementById('totalDeductionsBadge').textContent = total;
-  document.getElementById('pendingNotesBadge').textContent = pending;
+function updateBadges(){
+  const total=SCHOOLS.reduce((s,sc)=>s+getTotalCount(sc.id),0);
+  const pending=notes.filter(n=>!n.done).length;
+  const urgent=SCHOOLS.filter(s=>['AC','CLN','MO'].some(type=>TYPES[type].fields.some(f=>URGENT_KEYS.includes(f.key)&&deductions[s.id]?.[type]?.[f.key]))).length+urgentItems.length;
+  document.getElementById('totalDeductionsBadge').textContent=total;
+  document.getElementById('pendingNotesBadge').textContent=pending;
+  document.getElementById('urgentBadge').textContent=urgent;
 }
 </script>
 </body>
